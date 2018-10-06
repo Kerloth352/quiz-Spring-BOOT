@@ -16,7 +16,7 @@ public class Survey {
     private String description;
     private Date creation_date;
 
-    @ManyToMany
+    @ManyToMany(cascade = {CascadeType.ALL})
     @JoinTable(
             name = "survey_questions",
             joinColumns = { @JoinColumn(name = "survey_id")},
@@ -62,11 +62,10 @@ public class Survey {
         this.questions = questions;
     }
 
-    public Survey(String title, String description, Date creation_date, Set<Questions> questions) {
+    public Survey(String title, String description, Date creation_date) {
         this.title = title;
         this.description = description;
         this.creation_date = creation_date;
-        this.questions = questions;
     }
 
     public Survey() {

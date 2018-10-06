@@ -17,24 +17,43 @@ public class Answers {
     @ManyToMany(mappedBy = "answers")
     private Set<Questions> questions = new HashSet<>();
 
+    public Answers(String answer, Boolean correct) {
+        this.answer = answer;
+        this.correct = correct;
+    }
+
+    public Answers() {
+    }
+
     public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getAnswer() {
         return answer;
     }
 
-    public Boolean isCorrect() {
-        return correct;
-    }
-
-
     public void setAnswer(String answer) {
         this.answer = answer;
     }
 
+    public Boolean getCorrect() {
+        return correct;
+    }
+
     public void setCorrect(Boolean correct) {
         this.correct = correct;
+    }
+
+    public Set<Questions> getQuestions() {
+        return questions;
+    }
+
+    public void setQuestions(Set<Questions> questions) {
+        this.questions = questions;
     }
 }

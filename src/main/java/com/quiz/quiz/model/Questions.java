@@ -16,7 +16,7 @@ public class Questions {
     @ManyToMany(mappedBy = "questions")
     private Set<Survey> surveys = new HashSet<>();
 
-    @ManyToMany
+    @ManyToMany(cascade = {CascadeType.ALL})
     @JoinTable(
             name = "questions_answers",
             joinColumns = { @JoinColumn(name = "question_id")},
@@ -57,5 +57,11 @@ public class Questions {
         this.surveys = surveys;
     }
 
+    public Questions(String description, Integer points) {
+        this.description = description;
+        this.points = points;
+    }
 
+    public Questions() {
+    }
 }
