@@ -1,7 +1,6 @@
 package com.quiz.quiz.model;
 
 import javax.persistence.*;
-import javax.print.attribute.standard.MediaSize;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -22,7 +21,7 @@ public class Survey {
             joinColumns = { @JoinColumn(name = "survey_id")},
             inverseJoinColumns = { @JoinColumn(name = "question_id")}
     )
-    private Set<Questions> questions = new HashSet<>();
+    private Set<Question> questions = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -54,11 +53,11 @@ public class Survey {
         this.creation_date = creation_date;
     }
 
-    public Set<Questions> getQuestions() {
+    public Set<Question> getQuestions() {
         return questions;
     }
 
-    public void setQuestions(Set<Questions> questions) {
+    public void setQuestions(Set<Question> questions) {
         this.questions = questions;
     }
 
