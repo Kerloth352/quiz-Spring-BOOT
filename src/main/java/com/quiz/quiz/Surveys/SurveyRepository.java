@@ -1,6 +1,5 @@
-package com.quiz.quiz.repositories;
+package com.quiz.quiz.Surveys;
 
-import com.quiz.quiz.model.Survey;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

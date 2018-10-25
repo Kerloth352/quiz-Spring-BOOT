@@ -1,8 +1,7 @@
-package com.quiz.quiz.web;
+package com.quiz.quiz.Surveys;
 
 
-import com.quiz.quiz.repositories.SurveyRepository;
-import com.quiz.quiz.service.SurveyService;
+import com.quiz.quiz.Surveys.SurveyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 

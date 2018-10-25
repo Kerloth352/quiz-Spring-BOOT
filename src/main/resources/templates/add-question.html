@@ -1,0 +1,17 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add question</title>
+</head>
+<body>
+<form th:action="@{addQuestion}" method="post" th:object="${Question}">
+    <label for="description"> Description </label>
+    <input type="text" id="description" th:field="*{description}"/>
+    <label for="points"> Points </label>
+    <input type="text" id="points" th:field="*{points}"/>
+    <input type="submit">
+
+</form>
+
+</body>
+</html>

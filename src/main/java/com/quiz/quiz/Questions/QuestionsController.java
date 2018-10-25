@@ -1,12 +1,12 @@
-package com.quiz.quiz.web;
+package com.quiz.quiz.Questions;
 
-import com.quiz.quiz.model.Question;
-import com.quiz.quiz.service.QuestionsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.HashMap;
@@ -21,24 +21,27 @@ public class QuestionsController {
         this.questionsService = questionsService;
     }
 
+    @ModelAttribute(value = "Question")
+    public Question question(){
+        return new Question();
+    }
+
 
     @GetMapping(path = "/questions")
-    public ModelAndView getQuestions(Model model){
-        Map<String,Object> questions = new HashMap<>();
-        model.addAttribute("questions",questionsService.findAll());
-        questions.put("questions",questionsService.findAll());
-        return new ModelAndView("questions",questions);
+    public String getQuestions(Model model){
+        model.addAttribute("questionsList",questionsService.findAll());
+        return "questions";
     }
 
     @GetMapping(path = "/addQuestion")
-    public ModelAndView addQuestion(Model model){
-        return new ModelAndView("add-question");
+    public String addQuestion(Model model){
+        return "add-question";
     }
-
     @PostMapping(path = "/addQuestion")
-    public String addQuestion(Question question){
-
-        return "adsf";
+    public String addQuestion(@ModelAttribute("Question")Question question){
+        questionsService.save(question);
+        return "redirect:/questions";
     }
+
 
 }

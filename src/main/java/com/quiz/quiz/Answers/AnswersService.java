@@ -1,6 +1,5 @@
-package com.quiz.quiz.service;
+package com.quiz.quiz.Answers;
 
-import com.quiz.quiz.repositories.AnswersRepository;
 import org.springframework.stereotype.Service;
 
 @Service

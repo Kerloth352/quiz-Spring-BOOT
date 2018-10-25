@@ -1,7 +1,5 @@
-package com.quiz.quiz.service;
+package com.quiz.quiz.Questions;
 
-import com.quiz.quiz.model.Question;
-import com.quiz.quiz.repositories.QuestionsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

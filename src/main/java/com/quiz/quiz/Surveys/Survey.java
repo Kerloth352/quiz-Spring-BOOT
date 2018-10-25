@@ -1,4 +1,6 @@
-package com.quiz.quiz.model;
+package com.quiz.quiz.Surveys;
+
+import com.quiz.quiz.Questions.Question;
 
 import javax.persistence.*;
 import java.util.Date;

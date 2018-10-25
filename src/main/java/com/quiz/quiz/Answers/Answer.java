@@ -1,4 +1,4 @@
-package com.quiz.quiz.model;
+package com.quiz.quiz.Answers;
 
 import javax.persistence.*;
 import java.util.HashSet;

@@ -1,0 +1,22 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>questions</title>
+</head>
+<body>
+<table>
+    <thead>
+    <th>ID</th>
+    <th>Description</th>
+    <th>Points</th>
+    </thead>
+    <tbody>
+            <tr th:each="question : ${questionsList}">
+                <td th:text="${question.id}"></td>
+                <td th:text="${question.description}"></td>
+                <td th:text="${question.points}"></td>
+            </tr>
+    </tbody>
+</table>
+</body>
+</html>
