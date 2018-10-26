@@ -1,16 +1,22 @@
 package com.quiz.quiz.Answers;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.UUID;
 
 @Entity
 @Table(name = "answers")
 public class Answer {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-
-    private Long id;
+    @GeneratedValue(generator = "uuid")
+    @GenericGenerator(
+            name = "uuid",
+            strategy = "org.hibernate.id.UUIDGenerator"
+    )
+    private UUID id;
     private String answer;
     private Boolean correct;
 
@@ -23,12 +29,9 @@ public class Answer {
     public Answer() {
     }
 
-    public Long getId() {
-        return id;
-    }
 
-    public void setId(Long id) {
-        this.id = id;
+    public UUID getId() {
+        return id;
     }
 
     public String getAnswer() {

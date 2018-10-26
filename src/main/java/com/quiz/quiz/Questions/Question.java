@@ -2,17 +2,24 @@ package com.quiz.quiz.Questions;
 
 import com.quiz.quiz.Answers.Answer;
 import com.quiz.quiz.Surveys.Survey;
+import org.hibernate.annotations.GeneratorType;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.UUID;
 
 @Entity
 @Table(name = "questions")
 public class Question {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @GeneratedValue(generator = "uuid")
+    @GenericGenerator(
+            name = "uuid",
+            strategy = "org.hibernate.id.UUIDGenerator"
+    )
+    private UUID id;
     private String description;
     private Integer points;
 
@@ -28,7 +35,7 @@ public class Question {
     private Set<Answer> answers = new HashSet<>();
 
 
-    public Long getId() {
+    public UUID getId() {
         return id;
     }
 
@@ -48,9 +55,7 @@ public class Question {
         this.points = points;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+
 
     public Set<Survey> getSurveys() {
         return surveys;

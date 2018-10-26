@@ -1,18 +1,24 @@
 package com.quiz.quiz.Surveys;
 
 import com.quiz.quiz.Questions.Question;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.UUID;
 
 @Entity
 @Table(name = "survey")
 public class Survey {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @GeneratedValue(generator = "uuid")
+    @GenericGenerator(
+            name = "uuid",
+            strategy = "org.hibernate.id.UUIDGenerator"
+    )
+    private UUID id;
     private String title;
     private String description;
     private Date creation_date;
@@ -25,7 +31,7 @@ public class Survey {
     )
     private Set<Question> questions = new HashSet<>();
 
-    public Long getId() {
+    public UUID getId() {
         return id;
     }
 
