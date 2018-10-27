@@ -15,8 +15,10 @@
                 <td th:text="${question.id}"></td>
                 <td th:text="${question.description}"></td>
                 <td th:text="${question.points}"></td>
+                <td><a th:href="@{/deleteQuestion(id=${question.id})}">Delete</a></td>
             </tr>
     </tbody>
 </table>
+<a th:href="@{/addQuestion}">Add another Question</a>
 </body>
 </html>

@@ -14,12 +14,8 @@ import java.util.UUID;
 @Table(name = "questions")
 public class Question {
     @Id
-    @GeneratedValue(generator = "uuid")
-    @GenericGenerator(
-            name = "uuid",
-            strategy = "org.hibernate.id.UUIDGenerator"
-    )
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private String description;
     private Integer points;
 
@@ -35,7 +31,7 @@ public class Question {
     private Set<Answer> answers = new HashSet<>();
 
 
-    public UUID getId() {
+    public Long getId() {
         return id;
     }
 
@@ -54,8 +50,6 @@ public class Question {
     public void setPoints(Integer points) {
         this.points = points;
     }
-
-
 
     public Set<Survey> getSurveys() {
         return surveys;

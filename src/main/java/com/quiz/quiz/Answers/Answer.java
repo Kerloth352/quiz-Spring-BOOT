@@ -11,12 +11,8 @@ import java.util.UUID;
 @Table(name = "answers")
 public class Answer {
     @Id
-    @GeneratedValue(generator = "uuid")
-    @GenericGenerator(
-            name = "uuid",
-            strategy = "org.hibernate.id.UUIDGenerator"
-    )
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private String answer;
     private Boolean correct;
 
@@ -30,7 +26,7 @@ public class Answer {
     }
 
 
-    public UUID getId() {
+    public Long getId() {
         return id;
     }
 

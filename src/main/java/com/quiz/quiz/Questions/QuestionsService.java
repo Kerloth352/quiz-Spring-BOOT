@@ -3,7 +3,9 @@ package com.quiz.quiz.Questions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.management.Query;
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class QuestionsService {
@@ -25,5 +27,11 @@ public class QuestionsService {
     public void save (Question question){
         questionsRepository.save(question);
     }
+
+    public void delete(Question question){
+        questionsRepository.delete(question);
+    }
+
+
 
 }
